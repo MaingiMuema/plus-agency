@@ -493,7 +493,12 @@ export default function Home() {
             Development <span className="gradient-text">Process</span>
           </h2>
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-[var(--primary)] to-[var(--accent-2)]"></div>
+            {/* Timeline line - hidden on mobile, shown on md+ */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-[var(--primary)] to-[var(--accent-2)]"></div>
+
+            {/* Mobile indicator line - shown on mobile, hidden on md+ */}
+            <div className="md:hidden absolute left-8 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-[var(--primary)] to-[var(--accent-2)]"></div>
+
             {[
               {
                 phase: "Discovery",
@@ -523,27 +528,34 @@ export default function Home() {
             ].map((step, index) => (
               <div
                 key={index}
-                className={`relative flex items-center gap-8 mb-12 animate-on-scroll ${
+                className={`relative flex items-start md:items-center gap-4 md:gap-8 mb-12 animate-on-scroll ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
+                {/* Timeline dot - hidden on mobile, shown on md+ */}
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-[var(--primary)]"></div>
+
+                {/* Mobile timeline dot - shown on mobile, hidden on md+ */}
+                <div className="md:hidden absolute left-8 transform -translate-x-1/2 w-4 h-4 rounded-full bg-[var(--primary)]"></div>
+
                 <div
                   className={`flex-1 ${
-                    index % 2 === 0 ? "text-right" : "text-left"
+                    index % 2 === 0 ? "md:text-right" : "md:text-left"
                   }`}
                 >
-                  <div className="card inline-block">
-                    <div className="text-3xl mb-2">{step.icon}</div>
-                    <h3 className="text-xl font-bold mb-2 text-glow">
-                      {step.phase}
-                    </h3>
-                    <p className="text-sm text-[var(--foreground)]/80">
+                  <div className="card !p-4 md:!p-6 inline-block w-full md:w-auto">
+                    <div className="flex md:inline-flex items-center gap-3 mb-2">
+                      <div className="text-2xl md:text-3xl">{step.icon}</div>
+                      <h3 className="text-lg md:text-xl font-bold text-glow">
+                        {step.phase}
+                      </h3>
+                    </div>
+                    <p className="text-sm md:text-base text-[var(--foreground)]/80">
                       {step.description}
                     </p>
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-[var(--primary)]"></div>
-                <div className="flex-1"></div>
+                <div className="flex-1 hidden md:block"></div>
               </div>
             ))}
           </div>
