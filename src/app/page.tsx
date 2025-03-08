@@ -563,7 +563,7 @@ export default function Home() {
                 role: "CEO/CTO",
                 description:
                   "Visionary leader driving technological innovation and strategic direction",
-                image: "/team/mark.jpeg",
+                image: "/team/Mark.jpeg",
               },
               {
                 name: "Bramwel Mande",
