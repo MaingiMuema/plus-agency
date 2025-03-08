@@ -35,10 +35,10 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => scrollToSection("solutions")}
                   className="text-[var(--foreground)]/80 hover:text-[var(--foreground)] hover-float inline-block"
                 >
-                  Services
+                  Solutions
                 </button>
               </li>
               <li>

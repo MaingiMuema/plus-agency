@@ -422,7 +422,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="section relative">
+      <section id="projects" className="section relative">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center">
             Our <span className="gradient-text">Projects</span>

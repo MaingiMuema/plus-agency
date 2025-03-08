@@ -11,7 +11,7 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ["contact", "projects", "services"];
+      const sections = ["projects", "solutions"];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -61,7 +61,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {["services", "projects", "contact"].map((section) => (
+            {["solutions", "projects"].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
@@ -114,7 +114,7 @@ export default function Navbar() {
           } md:hidden`}
         >
           <div className="flex flex-col items-center justify-center h-full space-y-8">
-            {["services", "projects", "contact"].map((section) => (
+            {["solutions", "projects"].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
