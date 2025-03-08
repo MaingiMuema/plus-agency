@@ -40,12 +40,12 @@ export default function Navbar() {
     <nav
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? "py-4 bg-[var(--glass-bg)] backdrop-blur-xl border-b border-[var(--glass-border)]"
-          : "py-6"
+          ? "py-2 md:py-4 bg-[var(--background)] md:bg-[var(--glass-bg)] backdrop-blur-xl border-b border-[var(--glass-border)] shadow-md"
+          : "py-4 md:py-6 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between min-h-[48px] md:min-h-0">
           {/* Logo */}
           <a
             href="#"
@@ -87,61 +87,83 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Enhanced visibility */}
           <button
-            className="md:hidden relative z-50 w-12 h-12 flex items-center justify-center rounded-full focus:outline-none bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-sm shadow-lg"
+            className={`md:hidden fixed top-4 right-4 z-50 w-14 h-14 flex items-center justify-center rounded-lg focus:outline-none transition-all duration-300 
+              ${
+                isMenuOpen
+                  ? "bg-[var(--primary)] shadow-lg shadow-[var(--primary)]/20"
+                  : isScrolled
+                  ? "bg-[var(--primary)] shadow-lg shadow-[var(--primary)]/20"
+                  : "bg-[var(--glass-bg)]/90 backdrop-blur-md border-2 border-[var(--primary)]/50 shadow-lg shadow-[var(--primary)]/10"
+              }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            <div className="relative flex flex-col items-center justify-center w-6 h-6">
+            <div className="relative flex flex-col items-center justify-center w-7 h-7">
               <span
-                className={`w-6 h-0.5 bg-foreground rounded-full transform transition-all duration-300 ${
-                  isMenuOpen ? "rotate-45 translate-y-1" : ""
+                className={`w-7 h-1 ${
+                  isMenuOpen || isScrolled ? "bg-white" : "bg-foreground"
+                } rounded-full transform transition-all duration-300 ${
+                  isMenuOpen ? "rotate-45 translate-y-1.5" : ""
                 }`}
               ></span>
               <span
-                className={`w-6 h-0.5 bg-foreground rounded-full transform transition-all duration-300 mt-1.5 ${
-                  isMenuOpen ? "-rotate-45 -translate-y-0.5" : ""
+                className={`w-7 h-1 ${
+                  isMenuOpen || isScrolled ? "bg-white" : "bg-foreground"
+                } rounded-full transform transition-all duration-300 mt-1.5 ${
+                  isMenuOpen ? "-rotate-45 -translate-y-1" : ""
                 }`}
               ></span>
             </div>
+            <div
+              className={`absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-[var(--accent-2)] ${
+                isMenuOpen ? "opacity-0" : "opacity-100 animate-pulse"
+              } transition-opacity duration-300`}
+            ></div>
           </button>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-[var(--background)]/80 backdrop-blur-xl transform transition-all duration-500 ease-in-out ${
+          className={`fixed inset-0 bg-black backdrop-blur-2xl transform transition-all duration-500 ease-in-out ${
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
           } md:hidden`}
         >
+          <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[var(--background)] to-transparent"></div>
           <div
-            className={`flex flex-col items-center justify-center h-full space-y-8 transform transition-all duration-500 ${
+            className={`flex flex-col items-center justify-center min-h-screen px-6 py-20 transform transition-all duration-500 ${
               isMenuOpen
                 ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
+                : "translate-y-8 opacity-0"
             }`}
           >
-            {["solutions", "projects"].map((section) => (
+            <div className="w-full max-w-md space-y-6">
+              {["solutions", "projects"].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`w-full py-5 px-6 text-xl font-bold rounded-lg transition-all duration-300
+                    ${
+                      activeSection === section
+                        ? "gradient-text scale-102 bg-[var(--glass-bg)]/30"
+                        : "text-foreground/90 hover:text-foreground active:scale-98"
+                    }
+                    hover:bg-[var(--glass-bg)]/20 active:bg-[var(--glass-bg)]/30`}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </button>
+              ))}
               <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`text-2xl font-bold hover-float transition-all duration-300 ${
-                  activeSection === section
-                    ? "gradient-text scale-105"
-                    : "text-foreground/90 hover:text-foreground"
-                }`}
+                onClick={() => scrollToSection("contact")}
+                className="w-full btn-primary text-lg py-5 px-6 mt-8 rounded-lg transition-all duration-300
+                  hover:scale-102 active:scale-98"
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                Initialize Project
               </button>
-            ))}
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="btn-primary text-lg px-8 py-4 mt-4 transform hover:scale-105 transition-transform duration-300"
-            >
-              Initialize Project
-            </button>
+            </div>
           </div>
         </div>
       </div>

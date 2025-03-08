@@ -72,7 +72,7 @@ export default function Footer() {
                   href="mailto:hello@plusagency.com"
                   className="hover:text-[var(--secondary)] transition-colors"
                 >
-                  hello@plusagency.com
+                  hello@plus.ke
                 </a>
               </li>
               <li className="group flex items-center space-x-2 hover-float">
@@ -80,10 +80,10 @@ export default function Footer() {
                   Phone:
                 </span>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+254112246573"
                   className="hover:text-[var(--secondary)] transition-colors"
                 >
-                  +1 (234) 567-890
+                  +254 112246573
                 </a>
               </li>
             </ul>
