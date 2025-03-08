@@ -473,7 +473,7 @@ export default function Home() {
                 role: "CEO/CTO",
                 description:
                   "Visionary leader driving technological innovation and strategic direction",
-                icon: "👨‍💼",
+                image: "/team/mark.jpeg",
               },
               {
                 name: "Bramwel Mande",
@@ -481,14 +481,14 @@ export default function Home() {
                 subRole: "Quality Assurance",
                 description:
                   "Leading marketing strategies and ensuring product excellence",
-                icon: "👨‍💻",
+                image: "/team/Bram.jpeg",
               },
               {
                 name: "Samuel Ndolo",
                 role: "Chief Operations Officer & CFO",
                 description:
                   "Orchestrating seamless operations and financial strategy",
-                icon: "👨‍💼",
+                image: "https://randomuser.me/api/portraits/men/3.jpg",
               },
             ].map((member, index) => (
               <div
@@ -496,7 +496,13 @@ export default function Home() {
                 className="card hover-float animate-on-scroll text-center"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <div className="text-5xl mb-4">{member.icon}</div>
+                <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h3 className="text-2xl font-bold mb-2 text-glow">
                   {member.name}
                 </h3>
