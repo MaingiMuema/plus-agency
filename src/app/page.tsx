@@ -12,6 +12,64 @@ interface Particle {
 
 const colors = ["#cc32a9", "#fad509", "#f46e31", "#0290d0"];
 
+const projects = [
+  {
+    name: "USD-Flash",
+    image: "/usd-flash.png",
+    url: "https://usd-flash.vercel.app/",
+  },
+  {
+    name: "Forecast254",
+    image: "/forecast254.png",
+    url: "https://forecast254.vercel.app/",
+  },
+  {
+    name: "FlashSlides",
+    image: "/flashslides.png",
+    url: "https://on-the-know.vercel.app/",
+  },
+  {
+    name: "PropertyFinder",
+    image: "/Propertyfinder.png",
+    url: "https://www.propertyfinder.ke",
+  },
+  {
+    name: "Perpetua",
+    image: "/perpetua.png",
+    url: "https://perpetua-steel.vercel.app/",
+  },
+  {
+    name: "Aminiblock",
+    image: "/Aminiblock.png",
+    url: "https://aminiblock101.vercel.app/",
+  },
+  {
+    name: "Explorer Game",
+    image: "/explorer.png",
+    url: "https://simple-plane-game.vercel.app/",
+  },
+  {
+    name: "FTUSDT",
+    image: "/FTUSDT.png",
+    url: "https://ftusdt.vercel.app/",
+  },
+  {
+    name: "Credwave",
+    image: "/Credwave.png",
+    url: "https://www.credwave.com",
+  },
+  {
+    name: "VectorAfriq",
+    image: "/VectorAfriq.png",
+    url: "https://vectorafriqproperties.co.ke",
+  },
+  {
+    name: "Zeno's",
+    image: "/zeno-s.png",
+    url: "https://zeno-s.vercel.app/",
+  },
+];
+
 const solutions = [
   {
     title: "AI Development",
@@ -199,15 +257,15 @@ const industries = [
 const techStack = [
   {
     category: "Frontend",
-    technologies: ["React", "Vue", "Angular", "Next.js", "TypeScript"],
+    technologies: ["React", "Vue", "React Native", "Next.js", "TypeScript"],
   },
   {
     category: "Backend",
-    technologies: ["Node.js", "Python", "Java", "Go", "Ruby"],
+    technologies: ["Node.js", "Python", "Java", "PHP", "Ruby"],
   },
   {
     category: "Database",
-    technologies: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"],
+    technologies: ["PostgreSQL", "MongoDB", "Redis", "Supabase", "MySQL"],
   },
   {
     category: "DevOps",
@@ -359,6 +417,38 @@ export default function Home() {
                   </div>
                 ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="section relative">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center">
+            Our <span className="gradient-text">Projects</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <a
+                key={index}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card hover-float animate-on-scroll group"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="relative overflow-hidden rounded-lg mb-4 aspect-video">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold text-glow text-center">
+                  {project.name}
+                </h3>
+              </a>
+            ))}
           </div>
         </div>
       </section>
