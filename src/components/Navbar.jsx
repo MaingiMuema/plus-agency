@@ -89,17 +89,18 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden relative z-50 w-10 h-10 focus:outline-none"
+            className="md:hidden relative z-50 w-12 h-12 flex items-center justify-center rounded-full focus:outline-none bg-[var(--glass-bg)] border border-[var(--glass-border)] backdrop-blur-sm shadow-lg"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
-            <div className="relative flex flex-col items-center justify-center h-full">
+            <div className="relative flex flex-col items-center justify-center w-6 h-6">
               <span
-                className={`w-6 h-0.5 bg-foreground transform transition-all duration-300 ${
+                className={`w-6 h-0.5 bg-foreground rounded-full transform transition-all duration-300 ${
                   isMenuOpen ? "rotate-45 translate-y-1" : ""
                 }`}
               ></span>
               <span
-                className={`w-6 h-0.5 bg-foreground transform transition-all duration-300 mt-1 ${
+                className={`w-6 h-0.5 bg-foreground rounded-full transform transition-all duration-300 mt-1.5 ${
                   isMenuOpen ? "-rotate-45 -translate-y-0.5" : ""
                 }`}
               ></span>
@@ -109,19 +110,27 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-[var(--background)] bg-opacity-95 backdrop-blur-xl transform transition-transform duration-500 ease-in-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          className={`fixed inset-0 bg-[var(--background)]/80 backdrop-blur-xl transform transition-all duration-500 ease-in-out ${
+            isMenuOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
           } md:hidden`}
         >
-          <div className="flex flex-col items-center justify-center h-full space-y-8">
+          <div
+            className={`flex flex-col items-center justify-center h-full space-y-8 transform transition-all duration-500 ${
+              isMenuOpen
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+            }`}
+          >
             {["solutions", "projects"].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`text-2xl font-bold hover-float ${
+                className={`text-2xl font-bold hover-float transition-all duration-300 ${
                   activeSection === section
-                    ? "gradient-text"
-                    : "text-foreground/90"
+                    ? "gradient-text scale-105"
+                    : "text-foreground/90 hover:text-foreground"
                 }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -129,7 +138,7 @@ export default function Navbar() {
             ))}
             <button
               onClick={() => scrollToSection("contact")}
-              className="btn-primary text-lg px-8 py-4 mt-4"
+              className="btn-primary text-lg px-8 py-4 mt-4 transform hover:scale-105 transition-transform duration-300"
             >
               Initialize Project
             </button>
