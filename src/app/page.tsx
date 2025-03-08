@@ -460,6 +460,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="section relative">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-6xl font-bold mb-16 text-center">
+            Our <span className="gradient-text">Leadership</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Mark Maingi",
+                role: "CEO/CTO",
+                description:
+                  "Visionary leader driving technological innovation and strategic direction",
+                icon: "👨‍💼",
+              },
+              {
+                name: "Bramwel Mande",
+                role: "Executive Marketing Officer",
+                subRole: "Quality Assurance",
+                description:
+                  "Leading marketing strategies and ensuring product excellence",
+                icon: "👨‍💻",
+              },
+              {
+                name: "Samuel Ndolo",
+                role: "Chief Operations Officer & CFO",
+                description:
+                  "Orchestrating seamless operations and financial strategy",
+                icon: "👨‍💼",
+              },
+            ].map((member, index) => (
+              <div
+                key={index}
+                className="card hover-float animate-on-scroll text-center"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div className="text-5xl mb-4">{member.icon}</div>
+                <h3 className="text-2xl font-bold mb-2 text-glow">
+                  {member.name}
+                </h3>
+                <div className="text-[var(--primary)] font-semibold mb-2">
+                  {member.role}
+                  {member.subRole && (
+                    <div className="text-sm text-[var(--foreground)]/80">
+                      {member.subRole}
+                    </div>
+                  )}
+                </div>
+                <p className="text-sm text-[var(--foreground)]/80">
+                  {member.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="section relative">
         <div className="container mx-auto px-4">
