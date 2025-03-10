@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,13 +50,14 @@ export default function Navbar() {
           {/* Logo */}
           <a
             href="#"
-            className="text-2xl font-bold relative group"
+            className="text-2xl font-bold relative group flex"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <span className="gradient-text">Plus</span>
+            <Image src="/logo_favicon.png" alt="Plus" width={50} height={50} />
+            <span className="gradient-text mt-5 text-4xl">Plus</span>
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent-2)] transition-all duration-300 group-hover:w-full"></span>
           </a>
 
