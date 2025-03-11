@@ -592,6 +592,12 @@ export default function Home() {
                   "Orchestrating seamless operations and financial strategy",
                 image: "https://randomuser.me/api/portraits/men/3.jpg",
               },
+              {
+                name: "Josephat Olocho",
+                role: "Digital Marketing and Sales Officer",
+                description: "Driving digital marketing and sales strategies",
+                image: "https://randomuser.me/api/portraits/men/3.jpg",
+              },
             ].map((member, index) => (
               <div
                 key={index}
