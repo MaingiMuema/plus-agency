@@ -63,6 +63,13 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <a
+              href="/ai-news-tools"
+              className="relative group py-2 hover-float text-foreground/90"
+            >
+              <span className="relative z-10">AI News & Tools</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--primary)] to-[var(--accent-2)] transition-all duration-300 group-hover:w-full"></span>
+            </a>
             {["solutions", "projects"].map((section) => (
               <button
                 key={section}
@@ -143,6 +150,13 @@ export default function Navbar() {
             }`}
           >
             <div className="w-full max-w-md space-y-6">
+              <a
+                href="/ai-news-tools"
+                className="w-full py-5 px-6 text-xl font-bold rounded-lg transition-all duration-300 text-foreground/90 hover:text-foreground hover:bg-[var(--glass-bg)]/20 active:bg-[var(--glass-bg)]/30"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                AI News & Tools
+              </a>
               {["solutions", "projects"].map((section) => (
                 <button
                   key={section}
