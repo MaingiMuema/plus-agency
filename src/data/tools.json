@@ -1,0 +1,28 @@
+{
+  "tools": [
+    {
+      "id": "1",
+      "title": "AI Content Generator",
+      "description": "Advanced tool for generating high-quality content across various formats...",
+      "link": "#",
+      "status": "active",
+      "slug": "ai-content-generator"
+    },
+    {
+      "id": "2",
+      "title": "Image Generation API",
+      "description": "Create stunning images from text descriptions using our advanced AI...",
+      "link": "#",
+      "status": "active",
+      "slug": "image-generation-api"
+    },
+    {
+      "id": "3",
+      "title": "AI Code Assistant",
+      "description": "Intelligent coding assistant that helps developers write better code faster...",
+      "link": "#",
+      "status": "active",
+      "slug": "ai-code-assistant"
+    }
+  ]
+}

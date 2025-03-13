@@ -1,0 +1,28 @@
+{
+  "news": [
+    {
+      "id": "1",
+      "title": "GPT-4 Turbo Updates",
+      "description": "Latest improvements in context handling and response accuracy in GPT-4 Turbo...",
+      "date": "2025-03-13",
+      "link": "#",
+      "slug": "gpt-4-turbo-updates"
+    },
+    {
+      "id": "2",
+      "title": "AI in Healthcare Breakthroughs",
+      "description": "New applications of AI in medical diagnosis and treatment planning...",
+      "date": "2025-03-13",
+      "link": "#",
+      "slug": "ai-in-healthcare-breakthroughs"
+    },
+    {
+      "id": "3",
+      "title": "AI Ethics Guidelines",
+      "description": "New framework for ethical AI development and deployment...",
+      "date": "2025-03-13",
+      "link": "#",
+      "slug": "ai-ethics-guidelines"
+    }
+  ]
+}
