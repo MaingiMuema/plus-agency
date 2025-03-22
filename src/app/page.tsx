@@ -585,6 +585,7 @@ export default function Home() {
                   "Leading marketing strategies and ensuring product excellence",
                 image: "/team/Bram.jpeg",
               },
+              /*
               {
                 name: "Samuel Ndolo",
                 role: "Chief Operations Officer & CFO",
@@ -592,9 +593,10 @@ export default function Home() {
                   "Orchestrating seamless operations and financial strategy",
                 image: "/team/Samuel.jpg",
               },
+              */
               {
                 name: "Josephat Olocho",
-                role: "Digital Marketing and Sales Officer",
+                role: "Chief Operations Officer and Digital Marketing lead",
                 description: "Driving digital marketing and sales strategies",
                 image: "/team/Josephat.jpeg",
               },
